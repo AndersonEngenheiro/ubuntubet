@@ -25,21 +25,7 @@ async function callAll() {
       //   headless: true,
         //chromiumSandbox: false,
         chromiumSandbox: true,
-        headless: true,
-        args:[
-          //'--no-sandbox',
-          '--enable-automation',
-          '--enable-logging',
-         // '--enable-blink-features',
-          //'--enable-blink-test-features',
-         //'--disable-blink-features',
-         '--disable-origin-trial-controlled-blink-features'
-         //'--disable-gpu-sandbox',
-          //'--enable-auto-reload',
-          //"--incognito",
-          //'--enable-extension-activity-logging',
-        ]
-
+        headless: true
       });  //{headless: false}
         const page = await browser.newPage();
 
