@@ -4,8 +4,8 @@ import { chromium ,firefox, webkit } from 'playwright-webkit';
 import  bot from './botTelegram.js';
 
 
-const timerLigas = 6000;
-const timerTempoJogos= 4500;
+const timerLigas = 12000;
+const timerTempoJogos= 9000;
 
 async function callAll() {
 
@@ -37,7 +37,7 @@ async function callAll() {
         //const page = await browser.newContext();
 
    
-        await page.locator('text=Aceitar').click();
+        //await page.locator('text=Aceitar').click();
         await page.waitForLoadState('networkidle');
         
         await percorrendoTemposLigas();
