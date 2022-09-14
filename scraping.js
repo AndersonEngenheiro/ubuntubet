@@ -23,10 +23,10 @@ async function callAll() {
         const browser = await webkit.launch({
           chromiumSandbox: true,
           headless: true,
-            args:[
-                '--prefixed-storage-info-enabled'
+           // args:[
+           //     '--prefixed-storage-info-enabled'
           //    '--webview-enable-modern-cookie-same-site',
-            ]
+           //]
           }); 
           const page = await browser.newPage({
           //      userAgent: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
