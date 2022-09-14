@@ -9,7 +9,6 @@ const timerTempoJogos= 9000;
 
 async function callAll() {
 
-
  //chromeOptions.excludeSwitches("enable-logging");
 //chromeOptions.excludeSwitches("enable-automation");
 //chromeOptions.addArguments('--disable-blink-features=AutomationControlled');
@@ -21,37 +20,37 @@ async function callAll() {
 
     (async () => {
 
-      const browser = await webkit.launch({
-      //   headless: true,
-        //chromiumSandbox: false,
-        chromiumSandbox: true,
-        headless: true,
-        ignore_https_errors=True,
-        args:[
-           --webview-enable-modern-cookie-same-site,
-        ]
-      });  //{headless: false}
-      const page = await browser.newPage({
-             userAgent: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
-             viewport: {
-               height:1080,
-               width:1920 
-             }
-       });
+        const browser = await webkit.launch({
+          chromiumSandbox: true,
+          headless: true,
+            args:[
+                '--prefixed-storage-info-enabled'
+          //    '--webview-enable-modern-cookie-same-site',
+            ]
+          }); 
+          const page = await browser.newPage({
+          //      userAgent: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+                //  viewport: {
+                //    height:1080,
+                //    width:1920 
+                //  }
+          });
+          await page.context().cookies();
 
-        await page.goto('https://www.bet365.com/#/AVR/B146/R^1/');
 
-        await page.waitForLoadState('networkidle');
-       // await page.pause()
+          await page.goto('https://www.bet365.com/#/AVR/B146/R^1/');
 
-        //const page = await browser.newContext();
+          await page.waitForLoadState('networkidle');
+         // await page.pause()
+
+          //const page = await browser.newContext();
 
    
-        //await page.locator('text=Aceitar').click();
-        await page.waitForLoadState('networkidle');
+          //await page.locator('text=Aceitar').click();
+          await page.waitForLoadState('networkidle');
         
-        await percorrendoTemposLigas();
-        async function percorrendoTemposLigas(){
+          await percorrendoTemposLigas();
+          async function percorrendoTemposLigas(){
 
           // Click text=Euro Cup
           await page.locator('text=Euro Cup').click({delay:101}); 
