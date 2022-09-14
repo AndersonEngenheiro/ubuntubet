@@ -25,9 +25,19 @@ async function callAll() {
       //   headless: true,
         //chromiumSandbox: false,
         chromiumSandbox: true,
-        headless: true
+        headless: true,
+        ignore_https_errors=True,
+        args:[
+           --webview-enable-modern-cookie-same-site,
+        ]
       });  //{headless: false}
-        const page = await browser.newPage();
+      const page = await browser.newPage({
+             userAgent: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+             viewport: {
+               height:1080,
+               width:1920 
+             }
+       });
 
         await page.goto('https://www.bet365.com/#/AVR/B146/R^1/');
 
